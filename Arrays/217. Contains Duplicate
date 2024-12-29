@@ -1,0 +1,49 @@
+# //*Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
+ 
+
+# Example 1:
+
+# Input: nums = [1,2,3,1]
+
+# Output: true
+
+# Explanation:
+
+# The element 1 occurs at the indices 0 and 3.
+
+# Example 2:
+
+# Input: nums = [1,2,3,4]
+
+# Output: false
+
+# Explanation:
+
+# All elements are distinct.
+# #
+
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+
+        ## BEST SOLUTION
+        if len(nums) == len(set(nums)):
+            return False
+        return True
+
+        # SOL 1  TC= O(n)
+
+        seenset = set()
+        for x in nums:
+            if x in seenset:
+                return True
+                break
+            else:
+                seenset.add(x)
+        return False
+
+        # SOL 2  Time limit error DONT USE THIS APPROACH
+
+        # mapp= {x:nums.count(x) for x in nums}
+        # if len(list(mapp.values())) == len(nums):
+        #     return False
+        # return True
